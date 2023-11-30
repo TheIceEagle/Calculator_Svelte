@@ -9,7 +9,6 @@
 
     function addSchool() {
         schools = [...schools, new School(0, 0, 0, 0, 0, 0, 0)];
-        results =
     }
 </script>
 
