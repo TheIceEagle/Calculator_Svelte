@@ -1,13 +1,29 @@
 class School {
+    q1: number;
+    q2: number;
+    w: number;
+    avg: number;
+    all: number;
+    ss: number;
+    quotaCount: number;
+
     constructor(
-        public q1: number,
-        public q2: number,
-        public w: number,
-        public avg: number,
-        public all: number,
-        public ss: number,
-        public quotaCount: number
-    ) {}
+        q1: number,
+        q2: number,
+        w: number,
+        avg: number,
+        all: number,
+        ss: number,
+        quotaCount: number
+    ) {
+        this.q1 = q1;
+        this.q2 = q2;
+        this.w = w;
+        this.avg = avg;
+        this.all = all;
+        this.ss = ss;
+        this.quotaCount = quotaCount;
+    }
 
     getEfficiency(): number {
         return this.q1 * this.q2 * this.w / this.avg;
@@ -41,9 +57,6 @@ class School {
     toString(): string {
         return `School(q1=${this.q1}, q2=${this.q2}, w=${this.w}, avg=${this.avg}, all=${this.all}, ss=${this.ss}, quotaCount=${this.quotaCount})`;
     }
-
 }
 
 export default School;
-
-

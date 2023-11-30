@@ -1,6 +1,6 @@
 import School from "./School";
 
-class Calculator {
+export default class Calculator {
     distributeStep2(money: number, schools: School[]): void {
         let moneyLeft: number = money;
         for (let i = 0; i < 5; i++) {
