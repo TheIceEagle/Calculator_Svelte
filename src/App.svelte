@@ -3,12 +3,19 @@
     import School from "./School";
     const calculator = new Calculator();
     let schools : School[] = [];
-    let results : number[] = [];
     let grantsTotal : number = 0;
     let money : number = 0;
 
     function addSchool() {
-        schools = [...schools, new School(0, 0, 0, 0, 0, 0, 0)];
+        schools = [...schools, new School(1, 1, 600_000, 600_000, 50 , 10, 0)];
+    }
+
+    function calculate() {
+        for (let i = 0; i < schools.length; i++) {
+            schools[i].quotaCount = 0;
+        }
+        calculator.distributeStep2(money, schools);
+        schools = schools;
     }
 </script>
 
@@ -25,7 +32,6 @@
             <div>
                 <label for="q1">Q1</label>
                 <input id="q1" type="number" bind:value={school.q1} />
-                {school.q1}
             </div>
 
             <div>
@@ -44,13 +50,17 @@
             </div>
 
             <div>
-                <label for="ss">SS</label>
-                <input id="ss" type="number" bind:value={school.avg}  />
+                <label for="all">ALL</label>
+                <input id="all" type="number" bind:value={school.all} />
             </div>
 
             <div>
-                <label for="all">ALL</label>
-                <input id="all" type="number" bind:value={school.avg} />
+                <label for="ss">SS</label>
+                <input id="ss" type="number" bind:value={school.ss}  />
+            </div>
+
+            <div>
+                {school.quotaCount}
             </div>
         {/each}
 
@@ -58,7 +68,7 @@
 
     <div>
         <button on:click={addSchool}>Add school</button>
-        <button>Calculate</button>
+        <button on:click={calculate}>Calculate</button>
     </div>
 </div>
 
